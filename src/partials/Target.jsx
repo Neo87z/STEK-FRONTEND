@@ -317,62 +317,34 @@ export default class LoginPage extends Component {
           MainLoader: false,
         });
         const Word = {
-          EssaYdata: this.state.NotOptimized,
+          EssaYdata: res["data"]["Original"],
 
-        }
+        } 
+        console.log("heree")
 
-        let BaseURlX2 = GrammarURl + "/GetGrammarMistakes"
-        axios.post(BaseURlX2, Word)
-          .then(res => {
-            const data = res.data;
-
-            console.log(res["data"]['NumberOfMistakes'])
+        this.sleep(3000).then(r => {
+          console.log(this.state.NotOptimized)
 
 
 
-            let x = parseInt(res["data"]['NumberOfMistakes'])
+          let BaseURlX2 = GrammarURl + "/GetGrammarMistakes"
+          axios.post(BaseURlX2, Word)
+            .then(res => {
+              const data = res.data;
+
+              console.log(res["data"]['NumberOfMistakes'])
+
+
+
+              let x = parseInt(res["data"]['NumberOfMistakes'])
 
 
 
 
-            if (x == 1) {
+              if (x == 1) {
 
-              this.setState({
-                NotOptiFound1: true,
-              });
-              this.setState({
-                NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-              });
-
-              this.setState({
-                NotOptimizedConexxt: res["data"]["ContextData"][0],
-              });
-              this.setState({
-                NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
-              });
-              this.setState({
-                NotOptimizedMistake: res["data"]["MistakeMessage"][0],
-              });
-              this.setState({
-                NotOptimizedRuleType: res["data"]["RuleType"][0],
-              });
-              try {
-                this.setState({
-                  NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                });
-              } catch (err) {
-
-              }
-
-
-
-            } else {
-              if (x == 2) {
                 this.setState({
                   NotOptiFound1: true,
-                });
-                this.setState({
-                  NotOptiFound2: true,
                 });
                 this.setState({
                   NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
@@ -400,38 +372,13 @@ export default class LoginPage extends Component {
 
 
 
-
-                this.setState({
-                  NotOptimizedConexxt2: res["data"]["ContextData"][1],
-                });
-                this.setState({
-                  NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
-                });
-                this.setState({
-                  NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
-                });
-                this.setState({
-                  NotOptimizedRuleType2: res["data"]["RuleType"][1],
-                });
-                try {
-
-                } catch (err) {
-                  this.setState({
-                    NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                  });
-                }
-
-
               } else {
-                if (x == 3) {
+                if (x == 2) {
                   this.setState({
                     NotOptiFound1: true,
                   });
                   this.setState({
                     NotOptiFound2: true,
-                  });
-                  this.setState({
-                    NotOptiFound3: true,
                   });
                   this.setState({
                     NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
@@ -459,6 +406,7 @@ export default class LoginPage extends Component {
 
 
 
+
                   this.setState({
                     NotOptimizedConexxt2: res["data"]["ContextData"][1],
                   });
@@ -471,40 +419,17 @@ export default class LoginPage extends Component {
                   this.setState({
                     NotOptimizedRuleType2: res["data"]["RuleType"][1],
                   });
-
-                  try {
-                    this.setState({
-                      NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
-                    });
-                  } catch (err) {
-
-                  }
-
-
-                  this.setState({
-                    NotOptimizedConexxt3: res["data"]["ContextData"][2],
-                  });
-                  this.setState({
-                    NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
-                  });
-                  this.setState({
-                    NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
-                  });
-                  this.setState({
-                    NotOptimizedRuleType3: res["data"]["RuleType"][2],
-                  });
                   try {
 
                   } catch (err) {
                     this.setState({
-                      NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                      NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
                     });
                   }
 
 
                 } else {
-
-                  if (x == 4) {
+                  if (x == 3) {
                     this.setState({
                       NotOptiFound1: true,
                     });
@@ -515,16 +440,8 @@ export default class LoginPage extends Component {
                       NotOptiFound3: true,
                     });
                     this.setState({
-                      NotOptiFound4: true,
+                      NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
                     });
-                    try {
-                      this.setState({
-                        NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-                      });
-                    } catch (err) {
-
-                    }
-
 
                     this.setState({
                       NotOptimizedConexxt: res["data"]["ContextData"][0],
@@ -560,9 +477,10 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptimizedRuleType2: res["data"]["RuleType"][1],
                     });
+
                     try {
                       this.setState({
-                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                        NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
                       });
                     } catch (err) {
 
@@ -581,40 +499,18 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptimizedRuleType3: res["data"]["RuleType"][2],
                     });
-
                     try {
+
+                    } catch (err) {
                       this.setState({
                         NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
                       });
-                    } catch (err) {
-
                     }
-
-
-                    this.setState({
-                      NotOptimizedConexxt4: res["data"]["ContextData"][4],
-                    });
-                    this.setState({
-                      NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
-                    });
-                    this.setState({
-                      NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
-                    });
-                    this.setState({
-                      NotOptimizedRuleType4: res["data"]["RuleType"][4],
-                    });
-                    try {
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                      });
-                    } catch (err) {
-
-                    }
-
 
 
                   } else {
-                    if (x == 5) {
+
+                    if (x == 4) {
                       this.setState({
                         NotOptiFound1: true,
                       });
@@ -627,9 +523,14 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptiFound4: true,
                       });
-                      this.setState({
-                        NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-                      });
+                      try {
+                        this.setState({
+                          NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                        });
+                      } catch (err) {
+
+                      }
+
 
                       this.setState({
                         NotOptimizedConexxt: res["data"]["ContextData"][0],
@@ -643,7 +544,6 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
-
                       try {
                         this.setState({
                           NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
@@ -666,7 +566,6 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
-
                       try {
                         this.setState({
                           NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
@@ -710,7 +609,6 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType4: res["data"]["RuleType"][4],
                       });
-
                       try {
                         this.setState({
                           NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
@@ -719,228 +617,302 @@ export default class LoginPage extends Component {
 
                       }
 
-
-
-                      this.setState({
-                        NotOptimizedConexxt5: res["data"]["ContextData"][5],
-                      });
-                      this.setState({
-                        NotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
-                      });
-                      this.setState({
-                        NotOptimizedMistake5: res["data"]["MistakeMessage"][5],
-                      });
-                      this.setState({
-                        NotOptimizedRuleType5: res["data"]["RuleType"][5],
-                      });
-
-                      try {
-                        this.setState({
-                          NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
-                        });
-
-                      } catch (err) {
-
-                      }
 
 
                     } else {
-                      this.setState({
-                        NotOptiFound1: true,
-                      });
-                      this.setState({
-                        NotOptiFound2: true,
-                      });
-                      this.setState({
-                        NotOptiFound3: true,
-                      });
-                      this.setState({
-                        NotOptiFound4: true,
-                      });
-
-                      this.setState({
-                        NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-                      });
-
-                      this.setState({
-                        NotOptimizedConexxt: res["data"]["ContextData"][0],
-                      });
-                      this.setState({
-                        NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
-                      });
-                      this.setState({
-                        NotOptimizedMistake: res["data"]["MistakeMessage"][0],
-                      });
-                      this.setState({
-                        NotOptimizedRuleType: res["data"]["RuleType"][0],
-                      });
-
-                      try {
+                      if (x == 5) {
                         this.setState({
-                          NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          NotOptiFound1: true,
+                        });
+                        this.setState({
+                          NotOptiFound2: true,
+                        });
+                        this.setState({
+                          NotOptiFound3: true,
+                        });
+                        this.setState({
+                          NotOptiFound4: true,
+                        });
+                        this.setState({
+                          NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
                         });
 
-                      } catch (err) {
+                        this.setState({
+                          NotOptimizedConexxt: res["data"]["ContextData"][0],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                        });
+                        this.setState({
+                          NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType: res["data"]["RuleType"][0],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          });
+                        } catch (err) {
+
+                        }
+
+
+
+                        this.setState({
+                          NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                        });
+                        this.setState({
+                          NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                          });
+                        } catch (err) {
+
+                        }
+
+
+                        this.setState({
+                          NotOptimizedConexxt3: res["data"]["ContextData"][2],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                        });
+                        this.setState({
+                          NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType3: res["data"]["RuleType"][2],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                          });
+                        } catch (err) {
+
+                        }
+
+
+                        this.setState({
+                          NotOptimizedConexxt4: res["data"]["ContextData"][4],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                        });
+                        this.setState({
+                          NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType4: res["data"]["RuleType"][4],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                          });
+                        } catch (err) {
+
+                        }
+
+
+
+                        this.setState({
+                          NotOptimizedConexxt5: res["data"]["ContextData"][5],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                        });
+                        this.setState({
+                          NotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType5: res["data"]["RuleType"][5],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                          });
+
+                        } catch (err) {
+
+                        }
+
+
+                      } else {
+                        this.setState({
+                          NotOptiFound1: true,
+                        });
+                        this.setState({
+                          NotOptiFound2: true,
+                        });
+                        this.setState({
+                          NotOptiFound3: true,
+                        });
+                        this.setState({
+                          NotOptiFound4: true,
+                        });
+
+                        this.setState({
+                          NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                        });
+
+                        this.setState({
+                          NotOptimizedConexxt: res["data"]["ContextData"][0],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                        });
+                        this.setState({
+                          NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType: res["data"]["RuleType"][0],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          });
+
+                        } catch (err) {
+
+                        }
+
+
+                        this.setState({
+                          NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                        });
+                        this.setState({
+                          NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                        });
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                          });
+
+                        } catch (err) {
+
+                        }
+
+                        this.setState({
+                          NotOptimizedConexxt3: res["data"]["ContextData"][2],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                        });
+                        this.setState({
+                          NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType3: res["data"]["RuleType"][2],
+                        });
+
+
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                          });
+
+                        } catch (er) {
+
+                        }
+
+                        this.setState({
+                          NotOptimizedConexxt4: res["data"]["ContextData"][4],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                        });
+                        this.setState({
+                          NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType4: res["data"]["RuleType"][4],
+                        });
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                          });
+                        } catch (err) {
+
+                        }
+
+
+
+                        this.setState({
+                          NotOptimizedConexxt5: res["data"]["ContextData"][5],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                        });
+                        this.setState({
+                          NotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                        });
+                        this.setState({
+                          NotOptimizedRuleType5: res["data"]["RuleType"][5],
+                        });
+                        try {
+                          this.setState({
+                            NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                          });
+                        } catch (err) {
+
+                        }
+
+
+
 
                       }
-
-
-                      this.setState({
-                        NotOptimizedConexxt2: res["data"]["ContextData"][1],
-                      });
-                      this.setState({
-                        NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
-                      });
-                      this.setState({
-                        NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
-                      });
-                      this.setState({
-                        NotOptimizedRuleType2: res["data"]["RuleType"][1],
-                      });
-
-                      try {
-                        this.setState({
-                          NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                        });
-
-                      } catch (err) {
-
-                      }
-
-                      this.setState({
-                        NotOptimizedConexxt3: res["data"]["ContextData"][2],
-                      });
-                      this.setState({
-                        NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
-                      });
-                      this.setState({
-                        NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
-                      });
-                      this.setState({
-                        NotOptimizedRuleType3: res["data"]["RuleType"][2],
-                      });
-
-
-                      try {
-                        this.setState({
-                          NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                        });
-
-                      } catch (er) {
-
-                      }
-
-                      this.setState({
-                        NotOptimizedConexxt4: res["data"]["ContextData"][4],
-                      });
-                      this.setState({
-                        NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
-                      });
-                      this.setState({
-                        NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
-                      });
-                      this.setState({
-                        NotOptimizedRuleType4: res["data"]["RuleType"][4],
-                      });
-                      try {
-                        this.setState({
-                          NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                        });
-                      } catch (err) {
-
-                      }
-
-
-
-                      this.setState({
-                        NotOptimizedConexxt5: res["data"]["ContextData"][5],
-                      });
-                      this.setState({
-                        NotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
-                      });
-                      this.setState({
-                        NotOptimizedMistake5: res["data"]["MistakeMessage"][5],
-                      });
-                      this.setState({
-                        NotOptimizedRuleType5: res["data"]["RuleType"][5],
-                      });
-                      try {
-                        this.setState({
-                          NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
-                        });
-                      } catch (err) {
-                        this.setState({
-                          NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
-                        });
-                      }
-
-
                     }
                   }
                 }
               }
-            }
-            console.log(this.state.NotOptimizedNumberOfMistakeS, "Finally JHeree")
-            console.log(this.state.NotOptimizedConexxt2, "Finally JHeree")
-            console.log(this.state.NotOptimizedConexxt, "Finally JHeree")
-            const Word2 = {
-              EssaYdata: this.state.Optimized,
+              console.log(this.state.NotOptimizedNumberOfMistakeS, "Finally JHeree")
+              console.log(this.state.NotOptimizedConexxt2, "Finally JHeree")
+              console.log(this.state.NotOptimizedConexxt, "Finally JHeree")
+              const Word2 = {
+                EssaYdata: this.state.Optimized,
 
-            }
-
+              }
 
 
 
 
-            let BaseURlX22 = GrammarURl + "/GetGrammarMistakes"
-            axios.post(BaseURlX22, Word2)
-              .then(res => {
-                const data = res.data;
 
-                console.log(res["data"]['NumberOfMistakes'])
+              let BaseURlX22 = GrammarURl + "/GetGrammarMistakes"
+              axios.post(BaseURlX22, Word2)
+                .then(res => {
+                  const data = res.data;
 
-
-                let x = parseInt(res["data"]['NumberOfMistakes'])
+                  console.log(res["data"]['NumberOfMistakes'])
 
 
-
-                if (x == 1) {
-                  this.setState({
-                    OptiFound1: true,
-                  });
-                  this.setState({
-                    OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-                  });
-
-                  this.setState({
-                    OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
-                  });
-                  this.setState({
-                    OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
-                  });
-                  this.setState({
-                    OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
-                  });
-                  this.setState({
-                    OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
-                  });
-                  try {
-                    this.setState({
-                      OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                    });
-                  } catch (err) {
-
-                  }
+                  let x = parseInt(res["data"]['NumberOfMistakes'])
 
 
 
-                } else {
-                  if (x == 2) {
+                  if (x == 1) {
                     this.setState({
                       OptiFound1: true,
-                    });
-                    this.setState({
-                      OptiFound2: true,
                     });
                     this.setState({
                       OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
@@ -958,52 +930,24 @@ export default class LoginPage extends Component {
                     this.setState({
                       OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                     });
-
                     try {
                       this.setState({
                         OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
                       });
-
                     } catch (err) {
 
                     }
 
 
 
-                    this.setState({
-                      OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
-                    });
-                    this.setState({
-                      OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
-                    });
-                    this.setState({
-                      OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
-                    });
-                    this.setState({
-                      OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
-                    });
-
-                    try {
-                      this.setState({
-                        OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                      });
-                    }catch(err){
-
-                    }
-                   
-
                   } else {
-                    if (x == 3) {
+                    if (x == 2) {
                       this.setState({
                         OptiFound1: true,
                       });
                       this.setState({
                         OptiFound2: true,
                       });
-                      this.setState({
-                        OptiFound3: true,
-                      });
-
                       this.setState({
                         OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
                       });
@@ -1020,14 +964,16 @@ export default class LoginPage extends Component {
                       this.setState({
                         OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
-                      try{
+
+                      try {
                         this.setState({
                           OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
                         });
-                      }catch(err){
+
+                      } catch (err) {
 
                       }
-                  
+
 
 
                       this.setState({
@@ -1043,39 +989,17 @@ export default class LoginPage extends Component {
                         OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
 
-                      try{
-
-                      }catch(err){
+                      try {
                         this.setState({
-                          OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                          OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
                         });
-                      }
-                  
-
-                      this.setState({
-                        OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
-                      });
-                      this.setState({
-                        OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
-                      });
-                      this.setState({
-                        OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
-                      });
-                      this.setState({
-                        OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
-                      });
-
-                      try{
-                        this.setState({
-                          OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                        });
-  
-                      }catch(err){
+                      } catch (err) {
 
                       }
-                     
+
+
                     } else {
-                      if (x == 4) {
+                      if (x == 3) {
                         this.setState({
                           OptiFound1: true,
                         });
@@ -1085,9 +1009,7 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiFound3: true,
                         });
-                        this.setState({
-                          OptiFound4: true,
-                        });
+
                         this.setState({
                           OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
                         });
@@ -1104,15 +1026,14 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                         });
-
-                        try{
+                        try {
                           this.setState({
                             OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
                           });
-                        }catch(err){
+                        } catch (err) {
 
                         }
-                      
+
 
 
                         this.setState({
@@ -1127,15 +1048,16 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                         });
-                        try{
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                          });
-  
-                        }catch(err){
 
+                        try {
+
+                        } catch (err) {
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                          });
                         }
-                       
+
+
                         this.setState({
                           OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
                         });
@@ -1149,40 +1071,17 @@ export default class LoginPage extends Component {
                           OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                         });
 
-                        try{
+                        try {
                           this.setState({
                             OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
                           });
-                        }catch(err){
+
+                        } catch (err) {
 
                         }
-                       
-
-                        this.setState({
-                          OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
-                        });
-                        this.setState({
-                          NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
-                        });
-                        this.setState({
-                          OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
-                        });
-                        this.setState({
-                          OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
-                        });
-
-                        try{
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                          });
-                        }catch(err){
-
-                        }
-                        
-
 
                       } else {
-                        if (x == 5) {
+                        if (x == 4) {
                           this.setState({
                             OptiFound1: true,
                           });
@@ -1212,15 +1111,15 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                           });
 
-                          try{
+                          try {
                             this.setState({
                               OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
                             });
-  
-                          }catch(err){
+                          } catch (err) {
 
                           }
-                        
+
+
 
                           this.setState({
                             OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
@@ -1234,15 +1133,14 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                           });
-
-                          try{
+                          try {
                             this.setState({
                               OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
                             });
-                          }catch(err){
+
+                          } catch (err) {
 
                           }
-                        
 
                           this.setState({
                             OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -1257,20 +1155,20 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                           });
 
-                          try{
+                          try {
                             this.setState({
                               OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
                             });
-                          }catch(err){
+                          } catch (err) {
 
                           }
-                         
+
 
                           this.setState({
                             OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
                           });
                           this.setState({
-                            OptiNotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                            NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
                           });
                           this.setState({
                             OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
@@ -1279,174 +1177,282 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                           });
 
-                          try{
+                          try {
                             this.setState({
                               OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
                             });
-                          }catch(err){
+                          } catch (err) {
 
                           }
-                         
 
-
-                          this.setState({
-                            OptiNotOptimizedConexxt5: res["data"]["ContextData"][5],
-                          });
-                          this.setState({
-                            OptiNotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
-                          });
-                          this.setState({
-                            OptiNotOptimizedMistake5: res["data"]["MistakeMessage"][5],
-                          });
-                          this.setState({
-                            OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
-                          });
-
-                          try{
-                            this.setState({
-                              OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
-                            });
-                          }catch(err){
-
-                          }
-                        
 
 
                         } else {
-                          this.setState({
-                            OptiFound1: true,
-                          });
-                          this.setState({
-                            OptiFound2: true,
-                          });
-                          this.setState({
-                            OptiFound3: true,
-                          });
-                          this.setState({
-                            OptiFound4: true,
-                          });
-
-                          this.setState({
-                            OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-                          });
-
-                          this.setState({
-                            OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
-                          });
-                          this.setState({
-                            OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
-                          });
-                          this.setState({
-                            OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
-                          });
-                          this.setState({
-                            OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
-                          });
-                          try{
+                          if (x == 5) {
                             this.setState({
-                              OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                              OptiFound1: true,
                             });
-                          }catch(err){
+                            this.setState({
+                              OptiFound2: true,
+                            });
+                            this.setState({
+                              OptiFound3: true,
+                            });
+                            this.setState({
+                              OptiFound4: true,
+                            });
+                            this.setState({
+                              OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                            });
+
+                            this.setState({
+                              OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                              });
+
+                            } catch (err) {
+
+                            }
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt5: res["data"]["ContextData"][5],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+
+                          } else {
+                            this.setState({
+                              OptiFound1: true,
+                            });
+                            this.setState({
+                              OptiFound2: true,
+                            });
+                            this.setState({
+                              OptiFound3: true,
+                            });
+                            this.setState({
+                              OptiFound4: true,
+                            });
+
+                            this.setState({
+                              OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                            });
+
+                            this.setState({
+                              OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                            });
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                              });
+                            } catch (er) {
+
+                            }
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
+                            });
+
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
+                            });
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                              });
+                            } catch (err) {
+
+                            }
+
+
+
+                            this.setState({
+                              OptiNotOptimizedConexxt5: res["data"]["ContextData"][5],
+                            });
+                            this.setState({
+                              OptiNotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                            });
+                            this.setState({
+                              OptiNotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                            });
+                            this.setState({
+                              OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
+                            });
+                            try {
+                              this.setState({
+                                OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                              });
+                            } catch (err) {
+
+                            }
+
 
                           }
-                          
-
-
-                          this.setState({
-                            OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
-                          });
-                          this.setState({
-                            OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
-                          });
-                          this.setState({
-                            OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
-                          });
-                          this.setState({
-                            OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
-                          });
-
-                          try{
-                            this.setState({
-                              OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                            });
-                          }catch(er){
-
-                          }
-                       
-
-                          this.setState({
-                            OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
-                          });
-                          this.setState({
-                            OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
-                          });
-                          this.setState({
-                            OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
-                          });
-                          this.setState({
-                            OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
-                          });
-
-                          try{
-                            this.setState({
-                              OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                            });
-                          }catch(err){
-
-                          }
-                         
-
-                          this.setState({
-                            OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
-                          });
-                          this.setState({
-                            OptiNotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
-                          });
-                          this.setState({
-                            OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
-                          });
-                          this.setState({
-                            OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
-                          });
-                          try{
-                            this.setState({
-                              OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                            });
-                          }catch(err){
-
-                          }
-                          
-
-
-                          this.setState({
-                            OptiNotOptimizedConexxt5: res["data"]["ContextData"][5],
-                          });
-                          this.setState({
-                            OptiNotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
-                          });
-                          this.setState({
-                            OptiNotOptimizedMistake5: res["data"]["MistakeMessage"][5],
-                          });
-                          this.setState({
-                            OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
-                          });
-                          try{
-                            this.setState({
-                              OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
-                            });
-                          }catch(err){
-                            
-                          }
-                        
-
                         }
                       }
                     }
                   }
-                }
-                console.log(this.state.OptiNotOptimizedNumberOfMistakeS, "Finally JHeree")
-                console.log(this.state.OptiNotOptimizedConexxt, "Finally JHeree")
-                console.log(this.state.OptiNotOptimizedConexxt2, "Finally JHeree")
+                  console.log(this.state.OptiNotOptimizedNumberOfMistakeS, "Finally JHeree")
+                  console.log(this.state.OptiNotOptimizedConexxt, "Finally JHeree")
+                  console.log(this.state.OptiNotOptimizedConexxt2, "Finally JHeree")
 
 
 
@@ -1457,9 +1463,10 @@ export default class LoginPage extends Component {
 
 
 
-              })
+                })
 
-          })
+            })
+        })
 
 
       })
@@ -1743,7 +1750,9 @@ export default class LoginPage extends Component {
   CloseModal5 = e => {
     this.setState({ modal5Open: !this.state.modal5Open });
   }
-
+  sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
 
 
   onChange = (e) => {
