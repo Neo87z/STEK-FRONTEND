@@ -47,8 +47,12 @@ export default class LoginPage extends Component {
       FutureContinousTOPresentContinousbgColor: '#1C7FCA',
       FuturePerfectToPresentPerfectbgColor: '#1C7FCA',
       FutyrePerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
 
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
 
+      PastContinousToPresentContinous:false,
       SimplePresentToSimplePast: false,
       SimplePresentToFuture: false,
       PresentContinousToPastContinous: false,
@@ -64,11 +68,151 @@ export default class LoginPage extends Component {
       FutureContinousTOPresentContinous: false,
       FuturePerfectToPresentPerfect: false,
       FutyrePerfectContinousToPresentPerfectContinous: false,
+      PresentPerfectToPastPerfectNEw:false,
+      PresentPerfectToFuturePerfectENw:false,
       FinalChecker: 'None',
       FinalChecker2: 'None',
 
 
     };
+  }
+
+  
+
+  PastContinousToPresentContinousFunc = (e) => {
+
+
+    console.log('assss')
+
+    this.setState({
+      FinalChecker: 'PastContinousNEwData',
+      FinalChecker2: 'PresentCnontousNEw',
+      bgColor: '#1C7FCA',
+      bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:'orange',
+      PresentPerfectToPastPerfectNEwbgColor:'1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
+      PresentContinousToPastContinousbgColor: '#1C7FCA',
+      PresentContinousTOFuturContinousbgColor: '#1C7FCA',
+      PresentPerfectToPastPerfectbgColor: '#1C7FCA',
+      PresentPerfectToFuturePerfectbgColor: '#1C7FCA',
+      PresentPerfectContonousToFuturePerfectContinpusbgColor: '#1C7FCA',
+      PresentPerfectContinousToPastPerfectContinousbgColor: '#1C7FCA',
+      PastContinousToPresentContioysbgColor: '#1C7FCA',
+      PastPerfectToPresentPerfectbgColor: '#1C7FCA',
+      PastPerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      SimpleFutureTOSimplePresentbgColor: '#1C7FCA',
+      FutureContinousTOPresentContinousbgColor: '#1C7FCA',
+      FuturePerfectToPresentPerfectbgColor: '#1C7FCA',
+      FutyrePerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      SimplePresentToSimplePast: true,
+      SimplePresentToFuture: false,
+      PresentContinousToPastContinous: false,
+      PresentContinousTOFuturContinous: false,
+      PresentPerfectToPastPerfect: false,
+      PresentPerfectToFuturePerfect: false,
+      PresentPerfectContonousToFuturePerfectContinpus: false,
+      PresentPerfectContinousToPastPerfectContinous: false,
+      PastContinousToPresentContioys: false,
+      PastPerfectToPresentPerfect: false,
+      PastPerfectContinousToPresentPerfectContinous: false,
+      SimpleFutureTOSimplePresent: false,
+      FutureContinousTOPresentContinous: false,
+      FuturePerfectToPresentPerfect: false,
+      FutyrePerfectContinousToPresentPerfectContinous: false
+
+    });
+  }
+
+
+  PresentPerfectToPastPerfectNEwbgColorFunc = (e) => {
+
+
+    console.log('assss')
+
+    this.setState({
+      FinalChecker: 'PresentPerectCointousNew',
+      FinalChecker2: 'PastPerfectContinousnewData',
+      bgColor: '#1C7FCA',
+      bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'orange',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
+      PresentContinousToPastContinousbgColor: '#1C7FCA',
+      PresentContinousTOFuturContinousbgColor: '#1C7FCA',
+      PresentPerfectToPastPerfectbgColor: '#1C7FCA',
+      PresentPerfectToFuturePerfectbgColor: '#1C7FCA',
+      PresentPerfectContonousToFuturePerfectContinpusbgColor: '#1C7FCA',
+      PresentPerfectContinousToPastPerfectContinousbgColor: '#1C7FCA',
+      PastContinousToPresentContioysbgColor: '#1C7FCA',
+      PastPerfectToPresentPerfectbgColor: '#1C7FCA',
+      PastPerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      SimpleFutureTOSimplePresentbgColor: '#1C7FCA',
+      FutureContinousTOPresentContinousbgColor: '#1C7FCA',
+      FuturePerfectToPresentPerfectbgColor: '#1C7FCA',
+      FutyrePerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      SimplePresentToSimplePast: true,
+      SimplePresentToFuture: false,
+      PresentContinousToPastContinous: false,
+      PresentContinousTOFuturContinous: false,
+      PresentPerfectToPastPerfect: false,
+      PresentPerfectToFuturePerfect: false,
+      PresentPerfectContonousToFuturePerfectContinpus: false,
+      PresentPerfectContinousToPastPerfectContinous: false,
+      PastContinousToPresentContioys: false,
+      PastPerfectToPresentPerfect: false,
+      PastPerfectContinousToPresentPerfectContinous: false,
+      SimpleFutureTOSimplePresent: false,
+      FutureContinousTOPresentContinous: false,
+      FuturePerfectToPresentPerfect: false,
+      FutyrePerfectContinousToPresentPerfectContinous: false
+
+    });
+  }
+
+  PresentPerfectToFuturePerfectENwbgColorrFunc = (e) => {
+
+
+    console.log('assss')
+
+    this.setState({
+      FinalChecker: 'PresentPerfectContinousNEw',
+      FinalChecker2: 'FuturePerfectCOntinousNEw',
+      bgColor: '#1C7FCA',
+      bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'orange',
+      PresentContinousToPastContinousbgColor: '#1C7FCA',
+      PresentContinousTOFuturContinousbgColor: '#1C7FCA',
+      PresentPerfectToPastPerfectbgColor: '#1C7FCA',
+      PresentPerfectToFuturePerfectbgColor: '#1C7FCA',
+      PresentPerfectContonousToFuturePerfectContinpusbgColor: '#1C7FCA',
+      PresentPerfectContinousToPastPerfectContinousbgColor: '#1C7FCA',
+      PastContinousToPresentContioysbgColor: '#1C7FCA',
+      PastPerfectToPresentPerfectbgColor: '#1C7FCA',
+      PastPerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      SimpleFutureTOSimplePresentbgColor: '#1C7FCA',
+      FutureContinousTOPresentContinousbgColor: '#1C7FCA',
+      FuturePerfectToPresentPerfectbgColor: '#1C7FCA',
+      FutyrePerfectContinousToPresentPerfectContinousbgColor: '#1C7FCA',
+      SimplePresentToSimplePast: true,
+      SimplePresentToFuture: false,
+      PresentContinousToPastContinous: false,
+      PresentContinousTOFuturContinous: false,
+      PresentPerfectToPastPerfect: false,
+      PresentPerfectToFuturePerfect: false,
+      PresentPerfectContonousToFuturePerfectContinpus: false,
+      PresentPerfectContinousToPastPerfectContinous: false,
+      PastContinousToPresentContioys: false,
+      PastPerfectToPresentPerfect: false,
+      PastPerfectContinousToPresentPerfectContinous: false,
+      SimpleFutureTOSimplePresent: false,
+      FutureContinousTOPresentContinous: false,
+      FuturePerfectToPresentPerfect: false,
+      FutyrePerfectContinousToPresentPerfectContinous: false
+
+    });
   }
 
   SimplePresentToSimplePast = (e) => {
@@ -81,6 +225,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'SimplePast',
       bgColor: 'orange',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -123,6 +270,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'SimpleFuture',
       bgColor: '#1C7FCA',
       bgColorFuture: 'orange',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -165,6 +315,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'PastContinous',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: 'orange',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -208,6 +361,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'FutureContinous',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: 'orange',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -250,6 +406,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'PastPerfect',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: 'orange',
@@ -277,7 +436,8 @@ export default class LoginPage extends Component {
       SimpleFutureTOSimplePresent: false,
       FutureContinousTOPresentContinous: false,
       FuturePerfectToPresentPerfect: false,
-      FutyrePerfectContinousToPresentPerfectContinous: false
+      FutyrePerfectContinousToPresentPerfectContinous: false,
+ 
 
     });
   }
@@ -291,10 +451,13 @@ export default class LoginPage extends Component {
 
 
 
-      FinalChecker: 'PresentPerfect',
-      FinalChecker2: 'FuturePerfect',
+      FinalChecker: 'PresentPerfectNew',
+      FinalChecker2: 'FutrePerectNew',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -338,6 +501,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'FuturePerfectContois',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -380,6 +546,9 @@ export default class LoginPage extends Component {
 
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -411,7 +580,7 @@ export default class LoginPage extends Component {
 
     });
   }
-
+  
 
   PastContinousToPresentContioys = (e) => {
 
@@ -424,6 +593,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'PresentPerfectContinous',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -469,6 +641,9 @@ export default class LoginPage extends Component {
       FinalChecker2: 'PresentPerfect',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -513,6 +688,9 @@ export default class LoginPage extends Component {
 
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -559,6 +737,9 @@ export default class LoginPage extends Component {
 
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -598,11 +779,14 @@ export default class LoginPage extends Component {
 
     this.setState({
 
-      FinalChecker: 'PastPerfectContinous',
-      FinalChecker2: 'PresentPerfectContinous',
+      FinalChecker: 'FutureContinousNewData',
+      FinalChecker2: 'PresentContonousNEwdata',
 
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
@@ -643,14 +827,17 @@ export default class LoginPage extends Component {
     this.setState({
 
 
-      FinalChecker: 'PastPerfectContinous',
-      FinalChecker2: 'PresentPerfectContinous',
+      FinalChecker: 'FuturePerecetcNewDat',
+      FinalChecker2: 'PresenTPerfectNEwdata',
       bgColor: '#1C7FCA',
       bgColorFuture: '#1C7FCA',
+      PastContinousToPresentContinousgNewColor:"#1C7FCA",
       PresentContinousToPastContinousbgColor: '#1C7FCA',
       PresentContinousTOFuturContinousbgColor: '#1C7FCA',
       PresentPerfectToPastPerfectbgColor: '#1C7FCA',
       PresentPerfectToFuturePerfectbgColor: '#1C7FCA',
+      PresentPerfectToPastPerfectNEwbgColor:'#1C7FCA',
+      PresentPerfectToFuturePerfectENwbgColor:'#1C7FCA',
       PresentPerfectContonousToFuturePerfectContinpusbgColor: '#1C7FCA',
       PresentPerfectContinousToPastPerfectContinousbgColor: '#1C7FCA',
       PastContinousToPresentContioysbgColor: '#1C7FCA',
@@ -1309,13 +1496,14 @@ export default class LoginPage extends Component {
 
                         ,
                         {
+
                           this.state.PresentPerfectContinousEntered && (
                             <div>
-                              <div style={{ backgroundColor: this.state.PastContinousToPresentContioysbgColor, color: 'white' }} onClick={this.PastContinousToPresentContioys} class="ui primary button">
+                              <div style={{ backgroundColor: this.state.PresentPerfectToPastPerfectNEwbgColor, color: 'white' }} onClick={this.PresentPerfectToPastPerfectNEwbgColorFunc} class="ui primary button">
                                 Past Perfect Continous
                               </div>
 
-                              <div style={{ backgroundColor: this.state.PastPerfectToPresentPerfectbgColor, color: 'white' }} onClick={this.PastPerfectToPresentPerfect} class="ui primary button">
+                              <div style={{ backgroundColor: this.state.PresentPerfectToFuturePerfectENwbgColor, color: 'white' }} onClick={this.PresentPerfectToFuturePerfectENwbgColorrFunc} class="ui primary button">
                                 Future Perfect Continous
                               </div>
                             </div>
@@ -1327,7 +1515,7 @@ export default class LoginPage extends Component {
                         {
                           this.state.PastContinousEntered && (
                             <div>
-                              <div style={{ backgroundColor: this.state.PastContinousToPresentContioysbgColor, color: 'white' }} onClick={this.PastContinousToPresentContioys} class="ui primary button">
+                              <div style={{ backgroundColor: this.state.PastContinousToPresentContinousgNewColor, color: 'white' }} onClick={this.PastContinousToPresentContinousFunc} class="ui primary button">
                                 Present Continous
                               </div>
 
