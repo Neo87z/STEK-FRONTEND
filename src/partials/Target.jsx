@@ -357,7 +357,7 @@ export default class LoginPage extends Component {
                 NotOptimizedRuleType: res["data"]["RuleType"][0],
               });
               this.setState({
-                NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
               });
 
 
@@ -386,7 +386,7 @@ export default class LoginPage extends Component {
                   NotOptimizedRuleType: res["data"]["RuleType"][0],
                 });
                 this.setState({
-                  NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                  NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                 });
 
 
@@ -404,7 +404,7 @@ export default class LoginPage extends Component {
                   NotOptimizedRuleType2: res["data"]["RuleType"][1],
                 });
                 this.setState({
-                  NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                  NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                 });
 
               } else {
@@ -435,7 +435,7 @@ export default class LoginPage extends Component {
                     NotOptimizedRuleType: res["data"]["RuleType"][0],
                   });
                   this.setState({
-                    NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                    NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                   });
 
 
@@ -452,7 +452,7 @@ export default class LoginPage extends Component {
                     NotOptimizedRuleType2: res["data"]["RuleType"][1],
                   });
                   this.setState({
-                    NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                    NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1],
                   });
 
                   this.setState({
@@ -468,7 +468,7 @@ export default class LoginPage extends Component {
                     NotOptimizedRuleType3: res["data"]["RuleType"][2],
                   });
                   this.setState({
-                    NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                    NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                   });
 
                 } else {
@@ -503,7 +503,7 @@ export default class LoginPage extends Component {
                       NotOptimizedRuleType: res["data"]["RuleType"][0],
                     });
                     this.setState({
-                      NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                     });
 
 
@@ -520,7 +520,7 @@ export default class LoginPage extends Component {
                       NotOptimizedRuleType2: res["data"]["RuleType"][1],
                     });
                     this.setState({
-                      NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                      NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                     });
 
                     this.setState({
@@ -536,7 +536,7 @@ export default class LoginPage extends Component {
                       NotOptimizedRuleType3: res["data"]["RuleType"][2],
                     });
                     this.setState({
-                      NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                      NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                     });
 
                     this.setState({
@@ -552,7 +552,7 @@ export default class LoginPage extends Component {
                       NotOptimizedRuleType4: res["data"]["RuleType"][4],
                     });
                     this.setState({
-                      NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                      NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3],
                     });
 
 
@@ -587,7 +587,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                       });
 
 
@@ -604,7 +604,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                       });
 
                       this.setState({
@@ -620,7 +620,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType3: res["data"]["RuleType"][2],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                       });
 
                       this.setState({
@@ -636,7 +636,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType4: res["data"]["RuleType"][4],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][4],
                       });
 
 
@@ -653,7 +653,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType5: res["data"]["RuleType"][5],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                        NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][5],
                       });
 
 
@@ -688,7 +688,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                       });
 
 
@@ -705,7 +705,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                       });
 
                       this.setState({
@@ -721,7 +721,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType3: res["data"]["RuleType"][2],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                       });
 
                       this.setState({
@@ -737,7 +737,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType4: res["data"]["RuleType"][4],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3],
                       });
 
 
@@ -754,7 +754,7 @@ export default class LoginPage extends Component {
                         NotOptimizedRuleType5: res["data"]["RuleType"][5],
                       });
                       this.setState({
-                        NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                        NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4],
                       });
 
                     }
@@ -807,7 +807,7 @@ export default class LoginPage extends Component {
                     OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                   });
                   this.setState({
-                    OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                    OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                   });
 
 
@@ -836,7 +836,7 @@ export default class LoginPage extends Component {
                       OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                     });
                     this.setState({
-                      OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                     });
 
 
@@ -854,7 +854,7 @@ export default class LoginPage extends Component {
                       OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                     });
                     this.setState({
-                      OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                      OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                     });
 
                   } else {
@@ -886,7 +886,7 @@ export default class LoginPage extends Component {
                         OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
                       this.setState({
-                        OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                       });
 
 
@@ -903,7 +903,7 @@ export default class LoginPage extends Component {
                         OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
                       this.setState({
-                        OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                        OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1],
                       });
 
                       this.setState({
@@ -953,7 +953,7 @@ export default class LoginPage extends Component {
                           OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                         });
                         this.setState({
-                          OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                         });
 
 
@@ -970,7 +970,7 @@ export default class LoginPage extends Component {
                           OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                         });
                         this.setState({
-                          OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                          OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                         });
 
                         this.setState({
@@ -986,7 +986,7 @@ export default class LoginPage extends Component {
                           OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                         });
                         this.setState({
-                          OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                          OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                         });
 
                         this.setState({
@@ -1002,7 +1002,7 @@ export default class LoginPage extends Component {
                           OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                         });
                         this.setState({
-                          OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                          OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3],
                         });
 
 
@@ -1037,7 +1037,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                           });
 
 
@@ -1054,7 +1054,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                           });
 
                           this.setState({
@@ -1070,7 +1070,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                           });
 
                           this.setState({
@@ -1086,7 +1086,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][4],
                           });
 
 
@@ -1103,7 +1103,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                            OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][5],
                           });
 
 
@@ -1138,7 +1138,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0],
                           });
 
 
@@ -1155,7 +1155,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1],
                           });
 
                           this.setState({
@@ -1171,7 +1171,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2],
                           });
 
                           this.setState({
@@ -1187,7 +1187,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][4],
                           });
 
 
@@ -1204,7 +1204,7 @@ export default class LoginPage extends Component {
                             OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
                           });
                           this.setState({
-                            OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                            OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][5],
                           });
 
                         }
