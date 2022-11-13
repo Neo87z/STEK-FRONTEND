@@ -7,7 +7,7 @@ import ErrorImage from '../images/errorimage.png';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import axios from 'axios';
 import storage from "../firebaseConfig.js"
-import { PronounciationURL, EssayURL,GrammarURl } from '../constants'
+import { PronounciationURL, EssayURL, GrammarURl } from '../constants'
 
 import Modal from '@mui/material/Modal';
 import ReactWaves from '@dschoon/react-waves';
@@ -320,9 +320,9 @@ export default class LoginPage extends Component {
           EssaYdata: this.state.NotOptimized,
 
         }
-        
+
         let BaseURlX2 = GrammarURl + "/GetGrammarMistakes"
-        axios.post(BaseURlX2,Word)
+        axios.post(BaseURlX2, Word)
           .then(res => {
             const data = res.data;
 
@@ -332,11 +332,11 @@ export default class LoginPage extends Component {
 
             let x = parseInt(res["data"]['NumberOfMistakes'])
 
-            
-         
+
+
 
             if (x == 1) {
-            
+
               this.setState({
                 NotOptiFound1: true,
               });
@@ -356,9 +356,14 @@ export default class LoginPage extends Component {
               this.setState({
                 NotOptimizedRuleType: res["data"]["RuleType"][0],
               });
-              this.setState({
-                NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-              });
+              try {
+                this.setState({
+                  NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                });
+              } catch (err) {
+
+              }
+
 
 
             } else {
@@ -385,9 +390,14 @@ export default class LoginPage extends Component {
                 this.setState({
                   NotOptimizedRuleType: res["data"]["RuleType"][0],
                 });
-                this.setState({
-                  NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                });
+                try {
+                  this.setState({
+                    NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                  });
+                } catch (err) {
+
+                }
+
 
 
 
@@ -403,9 +413,14 @@ export default class LoginPage extends Component {
                 this.setState({
                   NotOptimizedRuleType2: res["data"]["RuleType"][1],
                 });
-                this.setState({
-                  NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                });
+                try {
+
+                } catch (err) {
+                  this.setState({
+                    NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                  });
+                }
+
 
               } else {
                 if (x == 3) {
@@ -434,9 +449,14 @@ export default class LoginPage extends Component {
                   this.setState({
                     NotOptimizedRuleType: res["data"]["RuleType"][0],
                   });
-                  this.setState({
-                    NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                  });
+                  try {
+                    this.setState({
+                      NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                    });
+                  } catch (err) {
+
+                  }
+
 
 
                   this.setState({
@@ -451,9 +471,15 @@ export default class LoginPage extends Component {
                   this.setState({
                     NotOptimizedRuleType2: res["data"]["RuleType"][1],
                   });
-                  this.setState({
-                    NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
-                  });
+
+                  try {
+                    this.setState({
+                      NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                    });
+                  } catch (err) {
+
+                  }
+
 
                   this.setState({
                     NotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -467,9 +493,14 @@ export default class LoginPage extends Component {
                   this.setState({
                     NotOptimizedRuleType3: res["data"]["RuleType"][2],
                   });
-                  this.setState({
-                    NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                  });
+                  try {
+
+                  } catch (err) {
+                    this.setState({
+                      NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                    });
+                  }
+
 
                 } else {
 
@@ -486,9 +517,14 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptiFound4: true,
                     });
-                    this.setState({
-                      NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
-                    });
+                    try {
+                      this.setState({
+                        NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                      });
+                    } catch (err) {
+
+                    }
+
 
                     this.setState({
                       NotOptimizedConexxt: res["data"]["ContextData"][0],
@@ -502,9 +538,14 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptimizedRuleType: res["data"]["RuleType"][0],
                     });
-                    this.setState({
-                      NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                    });
+                    try {
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      });
+                    } catch (err) {
+
+                    }
+
 
 
                     this.setState({
@@ -519,9 +560,14 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptimizedRuleType2: res["data"]["RuleType"][1],
                     });
-                    this.setState({
-                      NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                    });
+                    try {
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                      });
+                    } catch (err) {
+
+                    }
+
 
                     this.setState({
                       NotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -535,9 +581,15 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptimizedRuleType3: res["data"]["RuleType"][2],
                     });
-                    this.setState({
-                      NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                    });
+
+                    try {
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                      });
+                    } catch (err) {
+
+                    }
+
 
                     this.setState({
                       NotOptimizedConexxt4: res["data"]["ContextData"][4],
@@ -551,9 +603,14 @@ export default class LoginPage extends Component {
                     this.setState({
                       NotOptimizedRuleType4: res["data"]["RuleType"][4],
                     });
-                    this.setState({
-                      NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                    });
+                    try {
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                      });
+                    } catch (err) {
+
+                    }
+
 
 
                   } else {
@@ -586,9 +643,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        });
+                      } catch (err) {
+
+                      }
+
 
 
                       this.setState({
@@ -603,9 +666,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                        });
+                      } catch (err) {
+
+                      }
+
 
                       this.setState({
                         NotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -619,9 +688,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType3: res["data"]["RuleType"][2],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                        });
+                      } catch (err) {
+
+                      }
+
 
                       this.setState({
                         NotOptimizedConexxt4: res["data"]["ContextData"][4],
@@ -635,9 +710,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType4: res["data"]["RuleType"][4],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                        });
+                      } catch (err) {
+
+                      }
+
 
 
                       this.setState({
@@ -652,9 +733,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType5: res["data"]["RuleType"][5],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                        });
+
+                      } catch (err) {
+
+                      }
 
 
                     } else {
@@ -687,9 +774,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        });
+
+                      } catch (err) {
+
+                      }
 
 
                       this.setState({
@@ -704,9 +797,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                      });
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                        });
+
+                      } catch (err) {
+
+                      }
 
                       this.setState({
                         NotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -720,9 +819,16 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType3: res["data"]["RuleType"][2],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                      });
+
+
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                        });
+
+                      } catch (er) {
+
+                      }
 
                       this.setState({
                         NotOptimizedConexxt4: res["data"]["ContextData"][4],
@@ -736,9 +842,14 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType4: res["data"]["RuleType"][4],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                      });
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                        });
+                      } catch (err) {
+
+                      }
+
 
 
                       this.setState({
@@ -753,9 +864,16 @@ export default class LoginPage extends Component {
                       this.setState({
                         NotOptimizedRuleType5: res["data"]["RuleType"][5],
                       });
-                      this.setState({
-                        NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
-                      });
+                      try {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                        });
+                      } catch (err) {
+                        this.setState({
+                          NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                        });
+                      }
+
 
                     }
                   }
@@ -775,7 +893,7 @@ export default class LoginPage extends Component {
 
 
             let BaseURlX22 = GrammarURl + "/GetGrammarMistakes"
-            axios.post(BaseURlX22,Word2)
+            axios.post(BaseURlX22, Word2)
               .then(res => {
                 const data = res.data;
 
@@ -806,9 +924,14 @@ export default class LoginPage extends Component {
                   this.setState({
                     OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                   });
-                  this.setState({
-                    OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                  });
+                  try {
+                    this.setState({
+                      OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                    });
+                  } catch (err) {
+
+                  }
+
 
 
                 } else {
@@ -835,9 +958,15 @@ export default class LoginPage extends Component {
                     this.setState({
                       OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                     });
-                    this.setState({
-                      OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                    });
+
+                    try {
+                      this.setState({
+                        OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      });
+
+                    } catch (err) {
+
+                    }
 
 
 
@@ -853,9 +982,15 @@ export default class LoginPage extends Component {
                     this.setState({
                       OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                     });
-                    this.setState({
-                      OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                    });
+
+                    try {
+                      this.setState({
+                        OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                      });
+                    }catch(err){
+
+                    }
+                   
 
                   } else {
                     if (x == 3) {
@@ -885,9 +1020,14 @@ export default class LoginPage extends Component {
                       this.setState({
                         OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                       });
-                      this.setState({
-                        OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                      });
+                      try{
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        });
+                      }catch(err){
+
+                      }
+                  
 
 
                       this.setState({
@@ -902,9 +1042,15 @@ export default class LoginPage extends Component {
                       this.setState({
                         OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                       });
-                      this.setState({
-                        OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
-                      });
+
+                      try{
+
+                      }catch(err){
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                        });
+                      }
+                  
 
                       this.setState({
                         OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -918,10 +1064,16 @@ export default class LoginPage extends Component {
                       this.setState({
                         OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                       });
-                      this.setState({
-                        OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                      });
 
+                      try{
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                        });
+  
+                      }catch(err){
+
+                      }
+                     
                     } else {
                       if (x == 4) {
                         this.setState({
@@ -952,9 +1104,15 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                         });
-                        this.setState({
-                          OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                        });
+
+                        try{
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          });
+                        }catch(err){
+
+                        }
+                      
 
 
                         this.setState({
@@ -969,10 +1127,15 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                         });
-                        this.setState({
-                          OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                        });
+                        try{
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                          });
+  
+                        }catch(err){
 
+                        }
+                       
                         this.setState({
                           OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
                         });
@@ -985,9 +1148,15 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                         });
-                        this.setState({
-                          OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                        });
+
+                        try{
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                          });
+                        }catch(err){
+
+                        }
+                       
 
                         this.setState({
                           OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
@@ -1001,9 +1170,15 @@ export default class LoginPage extends Component {
                         this.setState({
                           OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                         });
-                        this.setState({
-                          OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                        });
+
+                        try{
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                          });
+                        }catch(err){
+
+                        }
+                        
 
 
                       } else {
@@ -1036,10 +1211,16 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                          });
 
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                            });
+  
+                          }catch(err){
+
+                          }
+                        
 
                           this.setState({
                             OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
@@ -1053,9 +1234,15 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                          });
+
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                            });
+                          }catch(err){
+
+                          }
+                        
 
                           this.setState({
                             OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -1069,9 +1256,15 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                          });
+
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                            });
+                          }catch(err){
+
+                          }
+                         
 
                           this.setState({
                             OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
@@ -1085,9 +1278,15 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                          });
+
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                            });
+                          }catch(err){
+
+                          }
+                         
 
 
                           this.setState({
@@ -1102,9 +1301,15 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
-                          });
+
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                            });
+                          }catch(err){
+
+                          }
+                        
 
 
                         } else {
@@ -1137,9 +1342,14 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
-                          });
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                            });
+                          }catch(err){
+
+                          }
+                          
 
 
                           this.setState({
@@ -1154,9 +1364,15 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
-                          });
+
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                            });
+                          }catch(er){
+
+                          }
+                       
 
                           this.setState({
                             OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
@@ -1170,9 +1386,15 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
-                          });
+
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                            });
+                          }catch(err){
+
+                          }
+                         
 
                           this.setState({
                             OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
@@ -1186,9 +1408,14 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
-                          });
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                            });
+                          }catch(err){
+
+                          }
+                          
 
 
                           this.setState({
@@ -1203,9 +1430,14 @@ export default class LoginPage extends Component {
                           this.setState({
                             OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
                           });
-                          this.setState({
-                            OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
-                          });
+                          try{
+                            this.setState({
+                              OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                            });
+                          }catch(err){
+                            
+                          }
+                        
 
                         }
                       }
