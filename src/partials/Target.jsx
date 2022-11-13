@@ -3,11 +3,11 @@ import React, { Component, useEffect } from "react";
 
 
 import vmsg from "vmsg";
-
+import ErrorImage from '../images/errorimage.png';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import axios from 'axios';
 import storage from "../firebaseConfig.js"
-import { PronounciationURL,EssayURL } from '../constants'
+import { PronounciationURL, EssayURL,GrammarURl } from '../constants'
 
 import Modal from '@mui/material/Modal';
 import ReactWaves from '@dschoon/react-waves';
@@ -127,7 +127,122 @@ export default class LoginPage extends Component {
       SimilarWords2: "0",
       SimilarWords3: "0",
       SimilarWords4: "0",
-      SimilarWords5: "0"
+      SimilarWords5: "0",
+      NotStek: false,
+      YesSTEK: false,
+      Error1: false,
+      Error1: false,
+      Error2: false,
+      Error3: false,
+      Error4: false,
+      Error5: false,
+      Error6: false,
+
+
+      NOTError1: false,
+      NOTError1: false,
+      NOTError2: false,
+      NOTError3: false,
+      NOTError4: false,
+      NOTError5: false,
+      NOTError6: false,
+
+      NotOptimizedNumberOfMistakeS: '',
+      NotOptimizedConexxt: '',
+      NotOptimizedErrorCate: '',
+      NotOptimizedMistake: '',
+      NotOptimizedRuleType: '',
+      NotOptimizedPossibleRepalcepent: '',
+
+      NotOptimizedConexxt2: '',
+      NotOptimizedErrorCate2: '',
+      NotOptimizedMistake2: '',
+      NotOptimizedRuleType2: '',
+      NotOptimizedPossibleRepalcepent2: '',
+
+      NotOptimizedConexxt3: '',
+      NotOptimizedErrorCate3: '',
+      NotOptimizedMistake3: '',
+      NotOptimizedRuleType3: '',
+      NotOptimizedPossibleRepalcepent3: '',
+
+      NotOptimizedConexxt4: '',
+      NotOptimizedErrorCate4: '',
+      NotOptimizedMistake4: '',
+      NotOptimizedRuleType4: '',
+      NotOptimizedPossibleRepalcepent4: '',
+
+      NotOptimizedConexxt5: '',
+      NotOptimizedErrorCate5: '',
+      NotOptimizedMistake5: '',
+      NotOptimizedRuleType5: '',
+      NotOptimizedPossibleRepalcepent5: '',
+
+      NotOptimizedConexxt6: '',
+      NotOptimizedErrorCate6: '',
+      NotOptimizedMistake6: '',
+      NotOptimizedRuleType6: '',
+      NotOptimizedPossibleRepalcepent6: '',
+
+
+
+
+
+
+      OptiNotOptimizedNumberOfMistakeS: '',
+      OptiNotOptimizedConexxt: '',
+      OptiNotOptimizedErrorCate: '',
+      OptiNotOptimizedMistake: '',
+      OptiNotOptimizedRuleType: '',
+      OptiNotOptimizedPossibleRepalcepent: '',
+
+      OptiNotOptimizedConexxt2: '',
+      OptiNotOptimizedErrorCate2: '',
+      OptiNotOptimizedMistake2: '',
+      OptiNotOptimizedRuleType2: '',
+      OptiNotOptimizedPossibleRepalcepent2: '',
+
+      OptiNotOptimizedConexxt3: '',
+      OptiNotOptimizedErrorCate3: '',
+      OptiNotOptimizedMistake3: '',
+      OptiNotOptimizedRuleType3: '',
+      OptiNotOptimizedPossibleRepalcepent3: '',
+
+      OptiNotOptimizedConexxt4: '',
+      OptiNotOptimizedErrorCate4: '',
+      OptiNotOptimizedMistake4: '',
+      OptiNotOptimizedRuleType4: '',
+      OptiNotOptimizedPossibleRepalcepent4: '',
+
+      OptiNotOptimizedConexxt5: '',
+      OptiNotOptimizedErrorCate5: '',
+      OptiNotOptimizedMistake5: '',
+      OptiNotOptimizedRuleType5: '',
+      OptiNotOptimizedPossibleRepalcepent5: '',
+
+      OptiNotOptimizedConexxt6: '',
+      OptiNotOptimizedErrorCate6: '',
+      OptiNotOptimizedMistake6: '',
+      OptiNotOptimizedRuleType6: '',
+      OptiNotOptimizedPossibleRepalcepent6: '',
+
+
+      OptiFound1: false,
+      OptiFound2: false,
+      OptiFound3: false,
+      OptiFound4: false,
+
+      NotOptiFound1: false,
+      NotOptiFound2: false,
+      NotOptiFound3: false,
+      NotOptiFound4: false,
+
+
+
+
+
+
+
 
 
 
@@ -199,9 +314,903 @@ export default class LoginPage extends Component {
           NotOptimized: res["data"]["Original"],
         });
         this.setState({
-          MainLoader: false ,
+          MainLoader: false,
         });
-      
+        const Word = {
+          EssaYdata: this.state.NotOptimized,
+
+        }
+        
+        let BaseURlX2 = GrammarURl + "/GetGrammarMistakes"
+        axios.post(BaseURlX2,Word)
+          .then(res => {
+            const data = res.data;
+
+            console.log(res["data"]['NumberOfMistakes'])
+
+
+
+            let x = parseInt(res["data"]['NumberOfMistakes'])
+
+            if (x == 1) {
+              this.setState({
+                NotOptiFound1: true,
+              });
+              this.setState({
+                NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+              });
+
+              this.setState({
+                NotOptimizedConexxt: res["data"]["ContextData"][0],
+              });
+              this.setState({
+                NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+              });
+              this.setState({
+                NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+              });
+              this.setState({
+                NotOptimizedRuleType: res["data"]["RuleType"][0],
+              });
+              this.setState({
+                NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+              });
+
+
+            } else {
+              if (x == 2) {
+                this.setState({
+                  NotOptiFound1: true,
+                });
+                this.setState({
+                  NotOptiFound2: true,
+                });
+                this.setState({
+                  NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                });
+
+                this.setState({
+                  NotOptimizedConexxt: res["data"]["ContextData"][0],
+                });
+                this.setState({
+                  NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                });
+                this.setState({
+                  NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                });
+                this.setState({
+                  NotOptimizedRuleType: res["data"]["RuleType"][0],
+                });
+                this.setState({
+                  NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                });
+
+
+
+                this.setState({
+                  NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                });
+                this.setState({
+                  NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                });
+                this.setState({
+                  NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                });
+                this.setState({
+                  NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                });
+                this.setState({
+                  NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                });
+
+              } else {
+                if (x == 3) {
+                  this.setState({
+                    NotOptiFound1: true,
+                  });
+                  this.setState({
+                    NotOptiFound2: true,
+                  });
+                  this.setState({
+                    NotOptiFound3: true,
+                  });
+                  this.setState({
+                    NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                  });
+
+                  this.setState({
+                    NotOptimizedConexxt: res["data"]["ContextData"][0],
+                  });
+                  this.setState({
+                    NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                  });
+                  this.setState({
+                    NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                  });
+                  this.setState({
+                    NotOptimizedRuleType: res["data"]["RuleType"][0],
+                  });
+                  this.setState({
+                    NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                  });
+
+
+                  this.setState({
+                    NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                  });
+                  this.setState({
+                    NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                  });
+                  this.setState({
+                    NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                  });
+                  this.setState({
+                    NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                  });
+                  this.setState({
+                    NotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                  });
+
+                  this.setState({
+                    NotOptimizedConexxt3: res["data"]["ContextData"][2],
+                  });
+                  this.setState({
+                    NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                  });
+                  this.setState({
+                    NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                  });
+                  this.setState({
+                    NotOptimizedRuleType3: res["data"]["RuleType"][2],
+                  });
+                  this.setState({
+                    NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                  });
+
+                } else {
+
+                  if (x == 4) {
+                    this.setState({
+                      NotOptiFound1: true,
+                    });
+                    this.setState({
+                      NotOptiFound2: true,
+                    });
+                    this.setState({
+                      NotOptiFound3: true,
+                    });
+                    this.setState({
+                      NotOptiFound4: true,
+                    });
+                    this.setState({
+                      NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                    });
+
+                    this.setState({
+                      NotOptimizedConexxt: res["data"]["ContextData"][0],
+                    });
+                    this.setState({
+                      NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                    });
+                    this.setState({
+                      NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                    });
+                    this.setState({
+                      NotOptimizedRuleType: res["data"]["RuleType"][0],
+                    });
+                    this.setState({
+                      NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                    });
+
+
+                    this.setState({
+                      NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                    });
+                    this.setState({
+                      NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                    });
+                    this.setState({
+                      NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                    });
+                    this.setState({
+                      NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                    });
+                    this.setState({
+                      NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                    });
+
+                    this.setState({
+                      NotOptimizedConexxt3: res["data"]["ContextData"][2],
+                    });
+                    this.setState({
+                      NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                    });
+                    this.setState({
+                      NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                    });
+                    this.setState({
+                      NotOptimizedRuleType3: res["data"]["RuleType"][2],
+                    });
+                    this.setState({
+                      NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                    });
+
+                    this.setState({
+                      NotOptimizedConexxt4: res["data"]["ContextData"][4],
+                    });
+                    this.setState({
+                      NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                    });
+                    this.setState({
+                      NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                    });
+                    this.setState({
+                      NotOptimizedRuleType4: res["data"]["RuleType"][4],
+                    });
+                    this.setState({
+                      NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                    });
+
+
+                  } else {
+                    if (x == 5) {
+                      this.setState({
+                        NotOptiFound1: true,
+                      });
+                      this.setState({
+                        NotOptiFound2: true,
+                      });
+                      this.setState({
+                        NotOptiFound3: true,
+                      });
+                      this.setState({
+                        NotOptiFound4: true,
+                      });
+                      this.setState({
+                        NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                      });
+
+                      this.setState({
+                        NotOptimizedConexxt: res["data"]["ContextData"][0],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                      });
+                      this.setState({
+                        NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType: res["data"]["RuleType"][0],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      });
+
+
+                      this.setState({
+                        NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                      });
+                      this.setState({
+                        NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                      });
+
+                      this.setState({
+                        NotOptimizedConexxt3: res["data"]["ContextData"][2],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                      });
+                      this.setState({
+                        NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType3: res["data"]["RuleType"][2],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                      });
+
+                      this.setState({
+                        NotOptimizedConexxt4: res["data"]["ContextData"][4],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                      });
+                      this.setState({
+                        NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType4: res["data"]["RuleType"][4],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                      });
+
+
+                      this.setState({
+                        NotOptimizedConexxt5: res["data"]["ContextData"][5],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                      });
+                      this.setState({
+                        NotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType5: res["data"]["RuleType"][5],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                      });
+
+
+                    } else {
+                      this.setState({
+                        NotOptiFound1: true,
+                      });
+                      this.setState({
+                        NotOptiFound2: true,
+                      });
+                      this.setState({
+                        NotOptiFound3: true,
+                      });
+                      this.setState({
+                        NotOptiFound4: true,
+                      });
+
+                      this.setState({
+                        NotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                      });
+
+                      this.setState({
+                        NotOptimizedConexxt: res["data"]["ContextData"][0],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                      });
+                      this.setState({
+                        NotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType: res["data"]["RuleType"][0],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      });
+
+
+                      this.setState({
+                        NotOptimizedConexxt2: res["data"]["ContextData"][1],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                      });
+                      this.setState({
+                        NotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType2: res["data"]["RuleType"][1],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                      });
+
+                      this.setState({
+                        NotOptimizedConexxt3: res["data"]["ContextData"][2],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                      });
+                      this.setState({
+                        NotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType3: res["data"]["RuleType"][2],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                      });
+
+                      this.setState({
+                        NotOptimizedConexxt4: res["data"]["ContextData"][4],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                      });
+                      this.setState({
+                        NotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType4: res["data"]["RuleType"][4],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                      });
+
+
+                      this.setState({
+                        NotOptimizedConexxt5: res["data"]["ContextData"][5],
+                      });
+                      this.setState({
+                        NotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                      });
+                      this.setState({
+                        NotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                      });
+                      this.setState({
+                        NotOptimizedRuleType5: res["data"]["RuleType"][5],
+                      });
+                      this.setState({
+                        NotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                      });
+
+                    }
+                  }
+                }
+              }
+            }
+            console.log(this.state.NotOptimizedNumberOfMistakeS, "Finally JHeree")
+            console.log(this.state.NotOptimizedConexxt2, "Finally JHeree")
+            console.log(this.state.NotOptimizedConexxt, "Finally JHeree")
+            const Word2 = {
+              EssaYdata: this.state.Optimized,
+
+            }
+
+
+
+
+
+            let BaseURlX22 = GrammarURl + "/GetGrammarMistakes"
+            axios.post(BaseURlX22,Word2)
+              .then(res => {
+                const data = res.data;
+
+                console.log(res["data"]['NumberOfMistakes'])
+
+
+                let x = parseInt(res["data"]['NumberOfMistakes'])
+
+
+
+                if (x == 1) {
+                  this.setState({
+                    OptiFound1: true,
+                  });
+                  this.setState({
+                    OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                  });
+
+                  this.setState({
+                    OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                  });
+                  this.setState({
+                    OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                  });
+                  this.setState({
+                    OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                  });
+                  this.setState({
+                    OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                  });
+                  this.setState({
+                    OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                  });
+
+
+                } else {
+                  if (x == 2) {
+                    this.setState({
+                      OptiFound1: true,
+                    });
+                    this.setState({
+                      OptiFound2: true,
+                    });
+                    this.setState({
+                      OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                    });
+
+                    this.setState({
+                      OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                    });
+                    this.setState({
+                      OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                    });
+                    this.setState({
+                      OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                    });
+                    this.setState({
+                      OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                    });
+                    this.setState({
+                      OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                    });
+
+
+
+                    this.setState({
+                      OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                    });
+                    this.setState({
+                      OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                    });
+                    this.setState({
+                      OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                    });
+                    this.setState({
+                      OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                    });
+                    this.setState({
+                      OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                    });
+
+                  } else {
+                    if (x == 3) {
+                      this.setState({
+                        OptiFound1: true,
+                      });
+                      this.setState({
+                        OptiFound2: true,
+                      });
+                      this.setState({
+                        OptiFound3: true,
+                      });
+
+                      this.setState({
+                        OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                      });
+
+                      this.setState({
+                        OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                      });
+                      this.setState({
+                        OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                      });
+                      this.setState({
+                        OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                      });
+                      this.setState({
+                        OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                      });
+                      this.setState({
+                        OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                      });
+
+
+                      this.setState({
+                        OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                      });
+                      this.setState({
+                        OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                      });
+                      this.setState({
+                        OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                      });
+                      this.setState({
+                        OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                      });
+                      this.setState({
+                        OptiNotOptimizedPossibleRepalcepen2: res["data"]["PossibleReplacemEnts"][1][0],
+                      });
+
+                      this.setState({
+                        OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
+                      });
+                      this.setState({
+                        OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                      });
+                      this.setState({
+                        OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                      });
+                      this.setState({
+                        OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
+                      });
+                      this.setState({
+                        OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                      });
+
+                    } else {
+                      if (x == 4) {
+                        this.setState({
+                          OptiFound1: true,
+                        });
+                        this.setState({
+                          OptiFound2: true,
+                        });
+                        this.setState({
+                          OptiFound3: true,
+                        });
+                        this.setState({
+                          OptiFound4: true,
+                        });
+                        this.setState({
+                          OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                        });
+
+                        this.setState({
+                          OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                        });
+                        this.setState({
+                          OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                        });
+                        this.setState({
+                          OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                        });
+                        this.setState({
+                          OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                        });
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                        });
+
+
+                        this.setState({
+                          OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                        });
+                        this.setState({
+                          OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                        });
+                        this.setState({
+                          OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                        });
+                        this.setState({
+                          OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                        });
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                        });
+
+                        this.setState({
+                          OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
+                        });
+                        this.setState({
+                          OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                        });
+                        this.setState({
+                          OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                        });
+                        this.setState({
+                          OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
+                        });
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                        });
+
+                        this.setState({
+                          OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
+                        });
+                        this.setState({
+                          NotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                        });
+                        this.setState({
+                          OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                        });
+                        this.setState({
+                          OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
+                        });
+                        this.setState({
+                          OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                        });
+
+
+                      } else {
+                        if (x == 5) {
+                          this.setState({
+                            OptiFound1: true,
+                          });
+                          this.setState({
+                            OptiFound2: true,
+                          });
+                          this.setState({
+                            OptiFound3: true,
+                          });
+                          this.setState({
+                            OptiFound4: true,
+                          });
+                          this.setState({
+                            OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          });
+
+
+                          this.setState({
+                            OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                          });
+
+
+                          this.setState({
+                            OptiNotOptimizedConexxt5: res["data"]["ContextData"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent5: res["data"]["PossibleReplacemEnts"][4][0],
+                          });
+
+
+                        } else {
+                          this.setState({
+                            OptiFound1: true,
+                          });
+                          this.setState({
+                            OptiFound2: true,
+                          });
+                          this.setState({
+                            OptiFound3: true,
+                          });
+                          this.setState({
+                            OptiFound4: true,
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedNumberOfMistakeS: res["data"]["NumberOfMistakes"],
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedConexxt: res["data"]["ContextData"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate: res["data"]["ErrorCaterygy"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake: res["data"]["MistakeMessage"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType: res["data"]["RuleType"][0],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent: res["data"]["PossibleReplacemEnts"][0][0],
+                          });
+
+
+                          this.setState({
+                            OptiNotOptimizedConexxt2: res["data"]["ContextData"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate2: res["data"]["ErrorCaterygy"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake2: res["data"]["MistakeMessage"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType2: res["data"]["RuleType"][1],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent2: res["data"]["PossibleReplacemEnts"][1][0],
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedConexxt3: res["data"]["ContextData"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate3: res["data"]["ErrorCaterygy"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake3: res["data"]["MistakeMessage"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType3: res["data"]["RuleType"][2],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent3: res["data"]["PossibleReplacemEnts"][2][0],
+                          });
+
+                          this.setState({
+                            OptiNotOptimizedConexxt4: res["data"]["ContextData"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate4: res["data"]["ErrorCaterygy"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake4: res["data"]["MistakeMessage"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType4: res["data"]["RuleType"][4],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepent4: res["data"]["PossibleReplacemEnts"][3][0],
+                          });
+
+
+                          this.setState({
+                            OptiNotOptimizedConexxt5: res["data"]["ContextData"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedErrorCate5: res["data"]["ErrorCaterygy"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedMistake5: res["data"]["MistakeMessage"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedRuleType5: res["data"]["RuleType"][5],
+                          });
+                          this.setState({
+                            OptiNotOptimizedPossibleRepalcepen5: res["data"]["PossibleReplacemEnts"][4][0],
+                          });
+
+                        }
+                      }
+                    }
+                  }
+                }
+                console.log(this.state.OptiNotOptimizedNumberOfMistakeS, "Finally JHeree")
+                console.log(this.state.OptiNotOptimizedConexxt, "Finally JHeree")
+                console.log(this.state.OptiNotOptimizedConexxt2, "Finally JHeree")
 
 
 
@@ -210,12 +1219,24 @@ export default class LoginPage extends Component {
 
 
 
+
+
+              })
+
+          })
 
 
       })
 
 
-  
+
+
+
+
+
+
+
+
 
 
 
@@ -394,6 +1415,53 @@ export default class LoginPage extends Component {
 
   }
 
+  OpenNotOptimized = e => {
+    this.setState({ NotStek: !this.state.NotStek });
+  }
+  OptimizedErrorMEssages = e => {
+    this.setState({ YesSTEK: !this.state.YesSTEK });
+  }
+  OpenError1 = e => {
+    this.setState({ Error1: !this.state.Error1 });
+  }
+  OpenError2 = e => {
+    this.setState({ Error2: !this.state.Error2 });
+  }
+  OpenError3 = e => {
+    this.setState({ Error3: !this.state.Error3 });
+  }
+  OpenError4 = e => {
+    this.setState({ Error4: !this.state.Error4 });
+  }
+  OpenError5 = e => {
+    this.setState({ Error5: !this.state.Error5 });
+  }
+  OpenError6 = e => {
+    this.setState({ Error6: !this.state.Error6 });
+  }
+
+
+
+  NOTOpenError1 = e => {
+    this.setState({ NOTError1: !this.state.NOTError1 });
+  }
+  NOTOpenError2 = e => {
+    this.setState({ NOTError2: !this.state.NOTError2 });
+  }
+  NOTOpenError3 = e => {
+    this.setState({ NOTError3: !this.state.NOTError3 });
+  }
+  NOTOpenError4 = e => {
+    this.setState({ NOTError4: !this.state.NOTError4 });
+  }
+  NOTOpenError5 = e => {
+    this.setState({ NOTError5: !this.state.NOTError5 });
+  }
+  NOTOpenError6 = e => {
+    this.setState({ NOTError6: !this.state.NOTError6 });
+  }
+
+
   ChangeWordOne = e => {
     this.setState({ WordOneStatus: !this.state.WordOneStatus });
   }
@@ -479,12 +1547,26 @@ export default class LoginPage extends Component {
     const style = {
       position: 'absolute',
       top: '50%',
-      left: '50%',
+      left: '47%',
       transform: 'translate(-42%, -39%)',
-      width: 900,
-      height: 630,
+      width: 700,
+      height: 430,
 
+      background: 'white',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4,
+    };
 
+    const style2 = {
+      position: 'absolute',
+      top: '50%',
+      left: '47%',
+      transform: 'translate(-42%, -39%)',
+      width: 500,
+      height: 400,
+
+      background: 'white',
       border: '2px solid #000',
       boxShadow: 24,
       p: 4,
@@ -519,7 +1601,7 @@ export default class LoginPage extends Component {
               </div>
 
               <div class=" disabled step">
-                <i class="microphone  icon"></i>
+                <i class="keyboard  icon"></i>
                 <div class="content">
                   <div class="title">Input</div>
                   <div class="description">Enter The Essay Topic Required </div>
@@ -535,9 +1617,9 @@ export default class LoginPage extends Component {
 
 
             </div>
-            <div class="ui segment">
+            <div style={{ marginLeft: '20px' }} class="ui segment">
 
-              
+
 
               {
 
@@ -549,6 +1631,1376 @@ export default class LoginPage extends Component {
                 )
 
               }
+
+
+              <Modal
+                open={this.state.NotStek}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenNotOptimized} class="close black icon"></i>
+                    <div class="ui  three statistics">
+                      <div class="red statistic">
+                        <div class="value">
+                          {this.state.NotOptimizedNumberOfMistakeS}
+                        </div>
+                        <div class="label">
+                          Grammar Mistakes
+                        </div>
+                      </div>
+                      <div class="  red statistic">
+                        <div class="value">
+                          {this.state.Accuracy}%
+                        </div>
+                        <div class="label">
+                          Essay Score
+                        </div>
+                      </div>
+
+                      <div class="red statistic">
+                        <div class="value">
+                          {this.state.Clarity}%
+                        </div>
+                        <div class="label">
+                          OverAll Score
+                        </div>
+                      </div>
+
+                    </div>
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <h1 style={{ color: 'black' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes</h1>
+                      <div data-aos="fade-up" className="ui max-w-3xl mx-auto text-left pb-12 md:pb-1 divided selection list">
+
+                        {
+                          this.state.NotOptiFound1 && (
+
+                            <a class="item">
+                              <div onClick={this.OpenError1} style={{ color: 'black' }} class="ui red horizontal label">1 -</div>
+                              <x style={{ color: 'black' }}> {this.state.NotOptimizedConexxt}</x>
+                            </a>
+
+
+                          )
+                        }
+                        {
+                          this.state.NotOptiFound1 && (
+
+                            <a class="item">
+                              <div onClick={this.OpenError2} style={{ color: 'black' }} class="ui red horizontal label">2 -</div>
+                              <x style={{ color: 'black' }}> {this.state.NotOptimizedConexxt2}</x>
+                            </a>
+
+
+                          )
+                        }
+                        {
+                          this.state.NotOptiFound1 && (
+
+                            <a class="item">
+                              <div onClick={this.OpenError3} style={{ color: 'black' }} class="ui red horizontal label">3 -</div>
+                              <x style={{ color: 'black' }}> {this.state.NotOptimizedConexxt3}</x>
+                            </a>
+
+
+                          )
+                        }
+                        {
+                          this.state.NotOptiFound1 && (
+
+                            <a class="item">
+                              <div onClick={this.OpenError4} style={{ color: 'black' }} class="ui red horizontal label">4 -</div>
+                              <x style={{ color: 'black' }}> {this.state.NotOptimizedConexxt4}</x>
+                            </a>
+
+
+                          )
+                        }
+
+
+
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+
+
+
+              <Modal
+                open={this.state.Error1}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenError1} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedPossibleRepalcepent}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.Error2}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenError2} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes2</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedPossibleRepalcepent2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType2}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.Error3}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenError3} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes3</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedPossibleRepalcepent3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType3}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.Error4}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenError4} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes4</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedPossibleRepalcepent4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType4}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+
+              <Modal
+                open={this.state.Error5}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenError5} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes5</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedPossibleRepalcepent5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType5}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.Error6}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OpenError6} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes6</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType6}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <Modal
+                open={this.state.YesSTEK}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.OptimizedErrorMEssages} class="close black icon"></i>
+                    <div class="ui  three statistics">
+                      <div class="red statistic">
+                        <div class="value">
+                          {this.state.OptiNotOptimizedNumberOfMistakeS}
+                        </div>
+                        <div class="label">
+                          Grammar Mistakes
+                        </div>
+                      </div>
+                      <div class="  red statistic">
+                        <div class="value">
+                          {this.state.Accuracy}%
+                        </div>
+                        <div class="label">
+                          Essay Score
+                        </div>
+                      </div>
+
+                      <div class="red statistic">
+                        <div class="value">
+                          {this.state.Clarity}%
+                        </div>
+                        <div class="label">
+                          OverAll Score
+                        </div>
+                      </div>
+
+                    </div>
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <h1 style={{ color: 'black' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes</h1>
+                      <div data-aos="fade-up" className="ui max-w-3xl mx-auto text-left pb-12 md:pb-1 divided selection list">
+
+                        {
+                          this.state.OptiFound1 && (
+
+                            <a class="item">
+                              <div onClick={this.NOTOpenError1} style={{ color: 'black' }} class="ui red horizontal label">1 -</div>
+                              <x style={{ color: 'black' }}> {this.state.OptiNotOptimizedConexxt}</x>
+                            </a>
+
+
+                          )
+                        }
+
+
+                        {
+                          this.state.OptiFound2 && (
+
+                            <a class="item">
+                              <div onClick={this.NOTOpenError2} style={{ color: 'black' }} class="ui red horizontal label">2 -</div>
+                              <x style={{ color: 'black' }}> {this.state.OptiNotOptimizedConexxt2}</x>
+                            </a>
+
+
+                          )
+                        }
+
+                        {
+                          this.state.OptiFound3 && (
+
+                            <a class="item">
+                              <div onClick={this.NOTOpenError3} style={{ color: 'black' }} class="ui red horizontal label">3 -</div>
+                              <x style={{ color: 'black' }}> {this.state.OptiNotOptimizedConexxt3}</x>
+                            </a>
+
+
+                          )
+                        }
+
+                        {
+                          this.state.OptiFound4 && (
+
+                            <a class="item">
+                              <div onClick={this.NOTOpenError4} style={{ color: 'black' }} class="ui red horizontal label">4 -</div>
+                              <x style={{ color: 'black' }}> {this.state.OptiNotOptimizedConexxt4}</x>
+                            </a>
+
+
+                          )
+                        }
+
+
+
+
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+
+              <Modal
+                open={this.state.NOTError1}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.NOTOpenError1} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedConexxt}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedMistake}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedPossibleRepalcepent}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedErrorCate}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedRuleType}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.NOTError2}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.NOTOpenError2} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes2</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedConexxt2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedMistake2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedPossibleRepalcepent2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedErrorCate2}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedRuleType2}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.NOTError3}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.NOTOpenError3} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes3</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedConexxt3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedMistake3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedPossibleRepalcepent3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedErrorCate3}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedRuleType3}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.NOTError4}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.NOTOpenError4} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes4</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedConexxt4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedMistake4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedPossibleRepalcepent4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedErrorCate4}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.OptiNotOptimizedRuleType4}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+
+              <Modal
+                open={this.state.NOTError5}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.NOTOpenError5} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes5</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedPossibleRepalcepent5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate5}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType5}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+              <Modal
+                open={this.state.NOTError6}
+
+
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style2}>
+
+                  <div data-aos="fade-left" class="ui basic">
+                    <i onClick={this.NOTOpenError6} class="close black icon"></i>
+
+                    <br></br>
+                    <div className="max-w-3xl mx-auto text-left pb-12 md:pb-1">
+                      <center><h1 style={{ color: 'black', marginTop: '-50px' }} className="h4 mb-4" data-aos="fade-up">Recognized grammar mistakes6</h1></center>
+                      <div class="ui comments">
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+
+                          </a>
+                          <div class="content">
+                            <a class="author">Context</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Mistake</a>
+                            <div class="text">
+                              {this.state.NotOptimizedMistake6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Possible Replacements</a>
+                            <div class="text">
+                              {this.state.NotOptimizedConexxt6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Error Category</a>
+                            <div class="text">
+                              {this.state.NotOptimizedErrorCate6}
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src={ErrorImage}></img>
+                          </a>
+                          <div class="content">
+                            <a class="author">Rule</a>
+                            <div class="text">
+                              {this.state.NotOptimizedRuleType6}
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </Box>
+
+              </Modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -566,8 +3018,33 @@ export default class LoginPage extends Component {
                     <div className="md:pl-4 lg:pl-12 xl:pl-16">
 
                       <div className="mt-6" data-aos="fade-left" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
-                       <b> <center><h4 style={{color:'black'}}className="h4 mb-2"><span className="text-purple-600">.</span> Optimized With STEK</h4></center></b>
-                        <center> <p style={{color:'black'}} className="text-lg text-gray-400">{this.state.Optimized}</p>
+                        <b> <center><h4 style={{ color: 'black' }} className="h4 mb-2"><span className="text-purple-600">.</span> Optimized With STEK</h4></center></b>
+                        <center> <p style={{ color: 'black' }} className="text-lg text-gray-400">{this.state.Optimized}</p>
+                          {
+
+                            !this.state.OptiFound1 && (
+                              <div className="flex flex-wrap -mx-3 mt-2">
+                                <div className="w-full px-3">
+                                  <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full" >Calculating The Score</button>
+                                </div>
+                              </div>
+
+                            )
+
+                          }
+                          {
+
+                            this.state.OptiFound1 && (
+                              <div className="flex flex-wrap -mx-3 mt-2">
+                                <div className="w-full px-3">
+                                  <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full" onClick={this.OptimizedErrorMEssages}>Check Mistakes</button>
+                                </div>
+                              </div>
+
+                            )
+
+                          }
+
                         </center> </div>
 
                     </div>
@@ -578,8 +3055,35 @@ export default class LoginPage extends Component {
                     <div className="md:pl-4 lg:pl-12 xl:pl-16">
 
                       <div className="mt-6" data-aos="fade-left" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
-                       <b> <center> <h4 style={{color:'black'}} className="h4 mb-2"><span className="text-purple-600">.</span> Without Optimization</h4></center></b>
-                        <center><p style={{color:'black'}} className="text-lg text-gray-400">{this.state.NotOptimized}</p>
+                        <b> <center> <h4 style={{ color: 'black' }} className="h4 mb-2"><span className="text-purple-600">.</span> Without Optimization</h4></center></b>
+                        <center><p style={{ color: 'black' }} className="text-lg text-gray-400">{this.state.NotOptimized}</p>
+
+                          {
+
+                            !this.state.NotOptiFound1 && (
+                              <div className="flex flex-wrap -mx-3 mt-2">
+                                <div className="w-full px-3">
+                                  <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full" >Calculating The Score</button>
+                                </div>
+                              </div>
+
+                            )
+
+                          }
+
+                          {
+
+                            this.state.NotOptiFound1 && (
+                              <div className="flex flex-wrap -mx-3 mt-2">
+                                <div className="w-full px-3">
+                                  <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full" onClick={this.OpenNotOptimized}>Check Mistakes</button>
+                                </div>
+                              </div>
+
+                            )
+
+                          }
+
                         </center> </div>
 
                     </div>
@@ -590,8 +3094,8 @@ export default class LoginPage extends Component {
               </div>
             </div>
           </div>
-    </div>
-      </section>
+        </div>
+      </section >
     );
   }
 }
