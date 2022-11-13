@@ -88,7 +88,7 @@ export default class LoginPage extends Component {
                   </div>
 
                   <div class=" active step">
-                    <i class="microphone  icon"></i>
+                    <i class="keyboard  icon"></i>
                     <div class="content">
                       <div class="title">Input</div>
                       <div class="description">Enter The Essay Topic Required </div>
