@@ -332,7 +332,11 @@ export default class LoginPage extends Component {
 
             let x = parseInt(res["data"]['NumberOfMistakes'])
 
+            
+         
+
             if (x == 1) {
+            
               this.setState({
                 NotOptiFound1: true,
               });
