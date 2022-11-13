@@ -7,6 +7,7 @@ import vmsg from "vmsg";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import axios from 'axios';
 import storage from "../firebaseConfig.js"
+import { PronounciationURL,EssayURL } from '../constants'
 
 import Modal from '@mui/material/Modal';
 import ReactWaves from '@dschoon/react-waves';
@@ -180,11 +181,10 @@ export default class LoginPage extends Component {
 
 
 
+    let BaseURlX = EssayURL + "/GetEssay"
 
 
-    let BaseURlX = "http://15009fa01ad6.ngrok.io/GetEssay"
-
-    axios.get(BaseURlX)
+    axios.post(BaseURlX)
       .then(res => {
         const data = res.data;
         console.log(res)
@@ -537,41 +537,7 @@ export default class LoginPage extends Component {
             </div>
             <div class="ui segment">
 
-              <div class="ui four statistics">
-                <div class="red statistic">
-                  <div class="value">
-                    {this.state.Confidence}%
-                  </div>
-                  <div class="label">
-                    Confidence
-                  </div>
-                </div>
-                <div class="  red statistic">
-                  <div class="value">
-                    {this.state.Accuracy}%
-                  </div>
-                  <div class="label">
-                    Accuracy
-                  </div>
-                </div>
-
-                <div class="red statistic">
-                  <div class="value">
-                    <i class="undo icon"></i>  {this.state.Clarity}%
-                  </div>
-                  <div class="label">
-                    Clarity
-                  </div>
-                </div>
-                <div class="red statistic">
-                  <div class="value">
-                    <i class="undo icon"></i> {this.state.OverAllScore}%
-                  </div>
-                  <div class="label">
-                    Overall Score
-                  </div>
-                </div>
-              </div>
+              
 
               {
 
@@ -600,8 +566,8 @@ export default class LoginPage extends Component {
                     <div className="md:pl-4 lg:pl-12 xl:pl-16">
 
                       <div className="mt-6" data-aos="fade-left" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
-                        <center><h4 className="h4 mb-2"><span className="text-purple-600">.</span> Optimized With STEK</h4></center>
-                        <center> <p className="text-lg text-gray-400">{this.state.Optimized}</p>
+                       <b> <center><h4 style={{color:'black'}}className="h4 mb-2"><span className="text-purple-600">.</span> Optimized With STEK</h4></center></b>
+                        <center> <p style={{color:'black'}} className="text-lg text-gray-400">{this.state.Optimized}</p>
                         </center> </div>
 
                     </div>
@@ -612,8 +578,8 @@ export default class LoginPage extends Component {
                     <div className="md:pl-4 lg:pl-12 xl:pl-16">
 
                       <div className="mt-6" data-aos="fade-left" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
-                        <center> <h4 className="h4 mb-2"><span className="text-purple-600">.</span> Without Optimization</h4></center>
-                        <center><p className="text-lg text-gray-400">{this.state.NotOptimized}</p>
+                       <b> <center> <h4 style={{color:'black'}} className="h4 mb-2"><span className="text-purple-600">.</span> Without Optimization</h4></center></b>
+                        <center><p style={{color:'black'}} className="text-lg text-gray-400">{this.state.NotOptimized}</p>
                         </center> </div>
 
                     </div>
@@ -624,7 +590,7 @@ export default class LoginPage extends Component {
               </div>
             </div>
           </div>
-        </div>
+    </div>
       </section>
     );
   }

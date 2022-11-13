@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
+import { PronounciationURL,EssayURL } from '../constants'
 
 
 export default class LoginPage extends Component {
@@ -41,7 +42,8 @@ export default class LoginPage extends Component {
 
     }
 
-    axios.post('http://15009fa01ad6.ngrok.io/SaveSentnece', Word)
+    let BaseURlX = EssayURL + "/SaveSentnece"
+    axios.post(BaseURlX, Word)
       .then();
 
     this.sleep(2000).then(r => {

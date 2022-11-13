@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
+import { PronounciationURL,verbURl } from '../../src/constants.js'
 
 
 export default class LoginPage extends Component {
@@ -691,7 +692,11 @@ export default class LoginPage extends Component {
 
     }
 
-    axios.post('http://a8cc-35-237-188-75.ngrok.io/TrasnfomerSentence', Word)
+
+    
+
+    let BaseURlX = verbURl + "/TrasnfomerSentence"
+    axios.post(BaseURlX, Word)
       .then(res => {
         this.setState({
           OutputData: res["data"]["Sentence"],
@@ -1151,8 +1156,8 @@ export default class LoginPage extends Component {
       SentenceData: this.state.Sentence,
 
     }
-
-    axios.post('http://4fdce7f64a3c.ngrok.io/SaveSentnece', Word)
+    let BaseURlX = verbURl + "/TrasnfomerSentence"
+    axios.post(BaseURlX, Word)
       .then();
 
     this.sleep(2000).then(r => {
