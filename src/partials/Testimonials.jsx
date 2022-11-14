@@ -635,7 +635,7 @@ export default class LoginPage extends Component {
               <div class="ui segment">
                 {
 
-                  MainLoader && (
+                  !MainLoader && (
                     <div class="ui active inverted dimmer" style={{ background: 'white' }}>
                       <div class="ui text loader">Please Wait While STEK Generate Your Results    </div>
                     </div>
@@ -644,15 +644,8 @@ export default class LoginPage extends Component {
 
                 }
 
-                <div class="ui four statistics">
-                  <div class="red statistic">
-                    <div class="value">
-                      {this.state.Confidence}%
-                    </div>
-                    <div class="label">
-                      Confidence
-                    </div>
-                  </div>
+                <div class="ui three statistics">
+
                   <div class="  red statistic">
                     <div class="value">
                       {this.state.Accuracy}%
