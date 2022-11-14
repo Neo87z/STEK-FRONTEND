@@ -1,5 +1,5 @@
-const PronounciationURL='http://90754fbd46ae.ngrok.io'
-const EssayURL='http://0b7b-35-239-90-83.ngrok.io'
-const verbURl='http://f604-34-66-252-172.ngrok.io'
-const GrammarURl='http://644a-35-237-255-55.ngrok.io'
+const PronounciationURL='http://03771e339781.ngrok.io'
+const EssayURL='http://a1e4-34-170-142-154.ngrok.io'
+const verbURl='http://eb48-34-125-22-1.ngrok.io'
+const GrammarURl='http://97e1-35-238-88-102.ngrok.io'
 export {PronounciationURL,EssayURL,verbURl,GrammarURl}
