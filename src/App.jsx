@@ -20,12 +20,15 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Help from './pages/Help';
 import SignIn from './pages/SignIn';
+import GetCitationTopic from './pages/citedata';
+import CitationResults from './pages/CitationResults';
 import GetEssayTopic from './pages/GetEssayTopic';
 import SignUp from './pages/SignUp';
 import GetVerbSentence from './pages/GetVerbSentence';
 import EssayResults from './pages/EssayResults';
 import EssayHome from './pages/EssayHome';
 import VerbHome from './pages/VerbHome';
+import CitationHome from './pages/citationHome';
 import SpeechHome from './pages/SpeechHome';
 import ResetPassword from './pages/ResetPassword';
 import PageNotFound from './pages/PageNotFound';
@@ -54,8 +57,9 @@ function App() {
       <Routes>
       
         <Route exact path="/" element={<Home />} />
-
-        
+        <Route path="/citation-results" element={<CitationResults />} />
+        <Route path="/citation-data" element={<GetCitationTopic />} />
+        <Route path="/citation-home" element={<CitationHome />} />
         <Route path="/get-sentence-verb" element={<GetVerbSentence />} />
         <Route path="/essay-results" element={<EssayResults />} />
         <Route path="/essay-home" element={<EssayHome />} />

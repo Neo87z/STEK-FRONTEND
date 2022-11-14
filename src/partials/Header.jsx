@@ -63,7 +63,7 @@ function Header() {
                 <Link to="/verb-home" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Verb Transformation</Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Citation Geneartor</Link>
+                <Link to="/citation-home" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Citation Geneartor</Link>
               </li>
               {/* 1st level: hover */}
              
@@ -72,10 +72,10 @@ function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link to="/signin" className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
+                <Link to="/" className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
               </li>
               <li>
-                <Link to="/signup" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">Sign up</Link>
+                <Link to="/" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">Sign up</Link>
               </li>
             </ul>
 
