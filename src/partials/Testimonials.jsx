@@ -635,7 +635,7 @@ export default class LoginPage extends Component {
               <div class="ui segment">
                 {
 
-                  !MainLoader && (
+                  MainLoader && (
                     <div class="ui active inverted dimmer" style={{ background: 'white' }}>
                       <div class="ui text loader">Please Wait While STEK Generate Your Results    </div>
                     </div>
